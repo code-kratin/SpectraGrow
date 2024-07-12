@@ -1,0 +1,175 @@
+<!-- {% extends 'layout.html' %} {% block body %} -->
+<link href="../static/styles/style.css" rel='stylesheet' type='text/css' media="all">
+
+<style>
+    nav{
+        background-color: rgb(83, 83, 83);
+        height: 60px;
+    }
+    html body {
+        background-color: rgb(206, 206, 228);
+    }
+</style>
+<!--Form Section-->
+<br /><br />
+<h2 style="text-align: center; margin: 0px; color: black">
+  <b>Get informed advice on fertilizer based on soil</b>
+</h2>
+<br />
+
+<div
+  style="
+    width: 350px;
+    height: 40rem;
+    margin: 0px 200px;
+    color: black;
+    border-radius: 25px;
+    padding: 10px 10px;
+    margin-bottom: 100px;
+  "
+>
+  <form method="POST" action="{{ url_for('fert_predict') }}">
+    <div class="form-group">
+        <label for="City"></label>
+        <input
+          type="text"
+          spellcheck="false"
+          placeholder="Enter City Name"
+          id="City"
+          class="form-control"
+          name="city"
+          required
+        />
+      </div>
+      <label for="mois" style="font-size:130%;"><b>Moisture:</b></label><br>
+        <input type="number" name="mois" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="soil" style="font-size:130%;"><b>Soil Type:</b></label><br>
+        <select name="soil" id="soil" >
+            <option value=0>Black</option>
+            <option value=1>Clayey</option>
+            <option value=2>Loamy</option>
+            <option value=3>Red</option>
+            <option value=4>Sandy</option>
+        </select><br><br>
+
+        <label for="crop" style="font-size:130%;"><b>Crop Type:</b></label><br>
+        <select name="crop" id="crop" >
+            <option value=0>Barley</option>
+            <option value=1>Cotton</option>
+            <option value=2>Ground Nuts</option>
+            <option value=3>Maize</option>
+            <option value=4>Millets</option>
+            <option value=5>Oil Seeds</option>
+            <option value=6>Paddy</option>
+            <option value=7>Pulses</option>
+            <option value=8>Sugarcane</option>
+            <option value=9>Tobacco</option>
+            <option value=10>Wheat</option>
+        </select><br><br>
+
+      <div class="form-group">
+        <label for="Nitrogen" style="font-size: 17px"><b>Nitrogen</b></label>
+        <input
+          type="number"
+          class="form-control"
+          id="Nitrogen"
+          name="nitrogen"
+          placeholder="Enter the value (example:50)"
+           required
+        />
+      </div>
+      <div class="form-group">
+        <label for="Phosphorous" style="font-size: 17px"
+          ><b>Phosphorous</b></label
+        >
+        <input
+          type="number"
+          class="form-control"
+          id="Phosphorous"
+          name="phosphorous"
+          placeholder="Enter the value (example:50)"
+           required
+        />
+      </div>
+  
+      <div class="form-group">
+        <label for="Pottasium" style="font-size: 17px"><b>Pottasium</b></label>
+        <input
+          type="number"
+          class="form-control"
+          id="Pottasium"
+          name="pottasium"
+          placeholder="Enter the value (example:50)"
+           required
+        />
+      </div>
+    <!-- <div class="form-group">
+      <label for="ph" style="font-size: 17px"><b>ph level</b></label>
+      <input
+        type="text"
+        class="form-control"
+        id="ph"
+        name="ph"
+        placeholder="Enter the value"
+        style="font-weight: bold"
+        required
+      />
+    </div> -->
+    <div class="form-group">
+      <label for="crop" style="font-size: 17px"
+        ><b>Crop you want to grow</b></label
+      >
+      <select
+        name="cropname"
+        class="form-control"
+        id="crop"
+        placeholder="Select a crop"
+        style="font-weight: bold"
+        required
+      >
+        <option selected>Select crop</option>
+        <option>rice</option>
+        <option>maize</option>
+        <option>chickpea</option>
+        <option>kidneybeans</option>
+        <option>pigeonpeas</option>
+        <option>mothbeans</option>
+        <option>mungbean</option>
+        <option>blackgram</option>
+        <option>lentil</option>
+        <option>pomegranate</option>
+        <option>banana</option>
+        <option>mango</option>
+        <option>grapes</option>
+        <option>watermelon</option>
+        <option>muskmelon</option>
+        <option>apple</option>
+        <option>orange</option>
+        <option>papaya</option>
+        <option>coconut</option>
+        <option>cotton</option>
+        <option>jute</option>
+        <option>coffee</option>
+      </select>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <button
+        type="submit"
+        class="btn btn-info"
+        style="
+          color: black;
+          font-weight: bold;
+          width: 130px;
+          height: 50px;
+          border-radius: 12px;
+          font-size: 21px;
+        "
+      >
+        Predict
+      </button>
+    </div>
+  </form>
+</div>
+<!-- {% endblock %} -->
